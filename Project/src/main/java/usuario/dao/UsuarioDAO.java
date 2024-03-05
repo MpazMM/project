@@ -40,10 +40,13 @@ public class UsuarioDAO {
 		}	
 	}
 	
+	//TODO
 	public void update(Usuario usuario) {
 		
 	}
 	
+	
+	//TODO
 	public void delete(Usuario usuario) {
 		
 	}
