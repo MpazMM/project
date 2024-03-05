@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
+<!--     <persistence-unit name="hibernateMySQL" transaction-type="RESOURCE_LOCAL"> -->
+<!--         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider> -->
+<!--         entidades o entities -->
+<!--               <class>usuario.entities.Usuario</class> -->
+<!--         <class>usuario.entities.RolUsuario</class> -->
+        
+<!--         <exclude-unlisted-classes>true</exclude-unlisted-classes> -->
+<!--         <properties> -->
+<!--             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/curso?serverTimezone=Europe/Madrid"/> -->
+<!--             <property name="jakarta.persistence.jdbc.user" value="root"/> -->
+<!--             <property name="jakarta.persistence.jdbc.password" value="password"/> -->
+<!--             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/> -->
+<!--             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/> -->
+<!--             <property name="hibernate.show_sql" value="true"/> -->
+<!--  			<property name="hibernate.hbm2ddl.auto" value="create"/> -->
+<!--         </properties> -->
+<!--     </persistence-unit> -->
+    
+    <persistence-unit name="sample">
+
+    <class>org.pramod.data.object.UserDetail</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <properties>
+        <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+        <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/hibernate_project"/>
+        <property name="hibernate.connection.username" value="root"/>
+        <property name="hibernate.connection.password" value="root"/>
+        <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+        <property name="hibernate.show_sql" value="true"/>
+        <property name="hibernate.format_sql" value="false"/>
+
+        <property name="hibernate.cache.use_second_level_cache" value="false"/>
+
+        <property name="hibernate.archive.autodetection" value="true"/>
+    </properties>
+</persistence-unit>
+    
+    
+    
+    <persistence-unit name="hibernateOracleBBDD" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>usuario.entities.Usuario</class>
+        <class>usuario.entities.RolUsuario</class>
+
+        
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+            <property name="jakarta.persistence.jdbc.user" value="curso"/>
+            <property name="jakarta.persistence.jdbc.password" value="password"/>
+            <property name="jakarta.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+ 			<property name="hibernate.hbm2ddl.auto" value="create"/>
+        </properties>
+    </persistence-unit>
+    
+    
+    
+    
+</persistence>
