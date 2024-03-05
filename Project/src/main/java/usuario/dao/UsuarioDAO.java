@@ -22,7 +22,6 @@ public class UsuarioDAO {
 		Query query = em.createQuery(
 				"from Usuario us where us.id=?1", 
 				Usuario.class);
-		
 		query.setParameter(1, id);
 		usuario = (Usuario)query.getSingleResult();
 		
