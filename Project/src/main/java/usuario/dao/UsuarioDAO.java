@@ -33,6 +33,7 @@ public class UsuarioDAO {
 		try {
 			em.persist(usuario);
 			this.em.getTransaction().commit();
+			
 		}catch (Exception e) {
 			this.em.getTransaction().rollback();
 		}	
