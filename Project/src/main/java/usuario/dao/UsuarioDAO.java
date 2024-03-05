@@ -28,6 +28,7 @@ public class UsuarioDAO {
 		return usuario;
 	}
 	
+	
 	public void insert(Usuario usuario) {
 		this.em.getTransaction().begin();
 		try {
