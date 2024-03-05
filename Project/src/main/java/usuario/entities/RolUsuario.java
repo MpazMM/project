@@ -7,13 +7,15 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import usuario.enums.UsuarioEnum;
 
 @Entity
 public class RolUsuario {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_RolUsuario")
+	@SequenceGenerator(name = "id_RolUsuario", sequenceName = "ID_SEQ_ROL")
     private Long id;
 
     @Enumerated(EnumType.STRING)

@@ -1,7 +1,8 @@
 package usuario.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
@@ -12,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -20,7 +22,8 @@ import jakarta.persistence.TemporalType;
 @Table(name = "TB_USUARIO_PROJECT") 
 public class Usuario {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_Usuario")
+    @SequenceGenerator(name = "id_Usuario", sequenceName = "ID_USUARIO")
     private Long idUsuario;
 
     private String nombre;
@@ -36,9 +39,9 @@ public class Usuario {
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "TB_USUARIO_ROLES",
-        joinColumns = @JoinColumn(name = "id_usuario"),
-        inverseJoinColumns = @JoinColumn(name = "id_rol"))
-    private Set<RolUsuario> roles = new HashSet<>();
+        joinColumns = @JoinColumn(name = "id_Usuario"),
+        inverseJoinColumns = @JoinColumn(name = "id_RolUsuario"))
+    private List<RolUsuario> roles = new ArrayList<RolUsuario>();
 
 	public Usuario() {
 		super();
@@ -47,7 +50,7 @@ public class Usuario {
 	
 
 	public Usuario(String nombre, String apellidos, String dni, String sexo, Date fechaNacimiento, String email,
-			String telefono, String nameUsuario, String contrasena, Set<RolUsuario> roles) {
+			String telefono, String nameUsuario, String contrasena, List<RolUsuario> roles) {
 		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -143,11 +146,15 @@ public class Usuario {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public Set<RolUsuario> getRoles() {
+
+
+	public List<RolUsuario> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(Set<RolUsuario> roles) {
+
+
+	public void setRoles(List<RolUsuario> roles) {
 		this.roles = roles;
 	}
 
@@ -155,12 +162,19 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", apellidos=" + apellidos + ", dni=" + dni + ", sexo=" + sexo
-				+ ", fechaNacimiento=" + fechaNacimiento + ", email=" + email + ", telefono=" + telefono
-				+ ", nameUsuario=" + nameUsuario + ", contrasena=" + contrasena + ", roles=" + roles + "]";
+		return "Usuario [" + (idUsuario != null ? "idUsuario=" + idUsuario + ", " : "")
+				+ (nombre != null ? "nombre=" + nombre + ", " : "")
+				+ (apellidos != null ? "apellidos=" + apellidos + ", " : "") + (dni != null ? "dni=" + dni + ", " : "")
+				+ (sexo != null ? "sexo=" + sexo + ", " : "")
+				+ (fechaNacimiento != null ? "fechaNacimiento=" + fechaNacimiento + ", " : "")
+				+ (email != null ? "email=" + email + ", " : "")
+				+ (telefono != null ? "telefono=" + telefono + ", " : "")
+				+ (nameUsuario != null ? "nameUsuario=" + nameUsuario + ", " : "")
+				+ (contrasena != null ? "contrasena=" + contrasena + ", " : "")
+				+ (roles != null ? "roles=" + roles : "") + "]";
 	}
-    
-    
+
+
     
     
 }

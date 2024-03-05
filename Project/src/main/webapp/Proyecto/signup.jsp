@@ -18,7 +18,7 @@
 
     <div class="container mt-5">
         <h2>Registro de Usuario</h2>
-        <form action="/Project/UsuarioServlet" method="post">
+        <form action="/Project/UsuarioServlet" method="post" onsubmit="return validarFormulario(event)">
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="nombreUsuario" class="form-label">Nombre</label>

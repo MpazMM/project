@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
      <style>
         .imagen-oop-container {
-    width: 100%; 
+    width: 500px; 
     height: 300px; 
     display: flex;
     justify-content: center; 
@@ -31,12 +31,12 @@
     <p>Los lenguajes de programación orientados a objetos (OOP) son un paradigma de programación que utiliza "objetos" para diseñar aplicaciones y programas informáticos. La OOP se centra en utilizar clases y objetos para estructurar el software de una manera más clara, reutilizable y fácil de mantener.</p>
 
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-md-6">
         <div class="imagen-oop-container">
             <img src="./img/imagen_java1.jpg" class="imagen-oop" alt="Programación">
         </div>
     </div>
-    <div class="col-sm-6">
+    <div class="col-md-6">
         <div class="imagen-oop-container">
             <img src="./img/imagen_java2.jpg" class="imagen-oop" alt="Programación">
         </div>

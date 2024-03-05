@@ -3,11 +3,9 @@ package usuario.servlet;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import jakarta.servlet.RequestDispatcher;
@@ -43,6 +41,8 @@ public class UsuarioServlet extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
 		System.out.println("Entrando init");
+		
+		
 	}
 
 	/**
@@ -96,7 +96,7 @@ public class UsuarioServlet extends HttpServlet {
 		}
 		
 
-		Set<RolUsuario> rolesSet = new HashSet<>();
+		List<RolUsuario> rolesSet = new ArrayList<>();
 		if (rolesStrings != null) {
 		    for (String rolString : rolesStrings) {
 		        UsuarioEnum rolEnum = UsuarioEnum.getRol(rolString);
@@ -117,9 +117,8 @@ public class UsuarioServlet extends HttpServlet {
 
 		List<Usuario> usuarios = usao.getUsuarios();
 
-
 		request.setAttribute("listadoUsuarios", usuarios);
-		RequestDispatcher rd = request.getRequestDispatcher("Proyecto/views/listadoUsuarios.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("Proyecto/listadoUsuarios.jsp");
 
 		rd.forward(request, response);
 	}

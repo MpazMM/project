@@ -49,7 +49,7 @@
 <header>
     <h1>Bienvenido a esta página</h1>
     <button class="btn-link" id="loginBtn">Log In</button>
-    <a href="/Project/Proyecto/signup.jsp" class="btn-link">Sign Up</a>
+    <a href="./Proyecto/signup.jsp" class="btn-link">Sign Up</a>
 </header>
 
 <div id="loginPopup">

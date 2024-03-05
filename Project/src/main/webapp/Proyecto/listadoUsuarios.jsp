@@ -1,5 +1,3 @@
-<%@page
-	import="org.apache.taglibs.standard.tag.common.core.ForEachSupport"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List, usuario.entities.*"%>
 <!DOCTYPE html>
@@ -61,7 +59,7 @@
 		%>
 
 	</table>
-	<button onclick="">Nuevo Usuario</button>
+	<button onclick="./Proyecto/signup.jsp">Nuevo Usuario</button>
 
 </body>
 </html>
