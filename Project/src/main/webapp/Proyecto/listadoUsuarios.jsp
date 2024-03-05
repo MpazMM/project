@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Listado usuarios</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 	<%
@@ -21,7 +22,7 @@
 			<th>Fecha Nacimiento</th>
 			<th>Email</th>
 			<th>Teléfono</th>
-			<th>Nombre Usuario</th>
+			<th>Usuario</th>
 			<th>Contraseña</th>
 			<th>Roles</th>
 		</tr>
@@ -59,7 +60,9 @@
 		%>
 
 	</table>
-	<button onclick="./Proyecto/signup.jsp">Nuevo Usuario</button>
+	<a href="./Proyecto/signup.jsp" class="btn btn-primary">Nuevo Usuario</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

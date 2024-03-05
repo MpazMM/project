@@ -6,7 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
@@ -24,6 +26,8 @@ import usuario.enums.UsuarioEnum;
  * Servlet implementation class UsuarioServlet
  */
 public class UsuarioServlet extends HttpServlet {
+	
+	private static final Logger logger = LogManager.getLogger(UsuarioServlet.class);
 	private static final long serialVersionUID = 1L;
 	private String subtitulo;
 
@@ -39,8 +43,9 @@ public class UsuarioServlet extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-		System.out.println("Entrando init");
+		logger.info("Entrando init");
+		logger.info("Creando enum de perfiles de usuario");
+		
 		
 		
 	}
