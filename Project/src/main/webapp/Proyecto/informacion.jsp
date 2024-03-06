@@ -8,24 +8,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
      <style>
         .imagen-oop-container {
-    width: 500px; 
-    height: 300px; 
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    overflow: hidden; 
-}
+            width: 500px; 
+            height: 300px; 
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            overflow: hidden; 
+        }
 
-.imagen-oop {
-    height: 100%; 
-    width: auto; 
-    object-fit: cover; 
-}
-
+        .imagen-oop {
+            height: 100%; 
+            width: auto; 
+            object-fit: cover; 
+        }
     </style>
 </head>
 <body>
- <jsp:include page="/Proyecto/recursos/cabecera.html"></jsp:include>
+ <jsp:include page="/Proyecto/recursos/cabecera.jsp"></jsp:include>
 <div class="container mt-4">
     <h1>Lenguajes de Programación Orientados a Objetos</h1>
     <p>Los lenguajes de programación orientados a objetos (OOP) son un paradigma de programación que utiliza "objetos" para diseñar aplicaciones y programas informáticos. La OOP se centra en utilizar clases y objetos para estructurar el software de una manera más clara, reutilizable y fácil de mantener.</p>
@@ -46,14 +45,14 @@
     <h2 class="mt-4">Comparativa de Lenguajes de Programación</h2>
     <div class="table-responsive">
         <table class="table">
-            <thead>
+            <thead class="text-white bg-dark"> <!-- Aquí se han añadido las clases para el fondo oscuro y texto blanco -->
                 <tr>
-                    <th>Lenguaje</th>
-                    <th>Ventajas</th>
-                    <th>Desventajas</th>
+                    <th scope="col" class="fw-bold">Lenguaje</th>
+                    <th scope="col" class="fw-bold">Ventajas</th>
+                    <th scope="col" class="fw-bold">Desventajas</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="text-white bg-secondary"> <!-- Se mantiene el texto blanco para el cuerpo de la tabla -->
                 <tr>
                     <td>Java</td>
                     <td>Ampliamente utilizado, multiplataforma, robusto.</td>

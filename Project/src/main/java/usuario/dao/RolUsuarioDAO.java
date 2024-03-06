@@ -59,6 +59,7 @@ public class RolUsuarioDAO {
 	        logger.error("Error al insertar el rol: ", e);
 	    }
 	}
+	
 	public boolean isEmpty() {
 		List<RolUsuario> roles = em.createQuery("from RolUsuario", RolUsuario.class).getResultList();
 		

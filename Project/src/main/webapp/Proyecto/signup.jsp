@@ -14,7 +14,7 @@
 <body>
 
     
-    <jsp:include page="/Proyecto/recursos/cabecera.html"></jsp:include>
+    <jsp:include page="/Proyecto/recursos/cabecera.jsp"></jsp:include>
 
     <div class="container mt-5">
         <h2>Registro de Usuario</h2>
