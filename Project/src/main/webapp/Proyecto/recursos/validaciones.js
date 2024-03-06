@@ -57,7 +57,7 @@ function validarEmail(email) {
 
 function mostrarError(elemento, mensaje) {
     elemento.classList.add('is-invalid');
-    var feedback = elemento.nextElementSibling;
+    let feedback = elemento.nextElementSibling;
     if (!feedback || !feedback.classList.contains('invalid-feedback')) {
         feedback = document.createElement('div');
         feedback.classList.add('invalid-feedback');
