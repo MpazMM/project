@@ -17,6 +17,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import usuario.dao.RolUsuarioDAO;
 import usuario.dao.UsuarioDAO;
 import usuario.entities.RolUsuario;
 import usuario.entities.Usuario;
@@ -29,7 +30,6 @@ public class UsuarioServlet extends HttpServlet {
 	
 	private static final Logger logger = LogManager.getLogger(UsuarioServlet.class);
 	private static final long serialVersionUID = 1L;
-	private String subtitulo;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -43,12 +43,19 @@ public class UsuarioServlet extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		logger.info("Entrando init");
-		logger.info("Creando enum de perfiles de usuario");
-		
-		
-		
-	}
+		 try {
+		        logger.info("Entrando init");
+		        RolUsuarioDAO rolDao = new RolUsuarioDAO();
+		        logger.info(rolDao.isEmpty());
+		        rolDao.insertRol(new RolUsuario(UsuarioEnum.ADMIN));
+		        rolDao.insertRol(new RolUsuario(UsuarioEnum.USER));
+		        rolDao.insertRol(new RolUsuario(UsuarioEnum.GUEST));
+		        logger.info("Creados perfiles de usuario " + UsuarioEnum.ADMIN + ", " + UsuarioEnum.USER + ", " + UsuarioEnum.GUEST);
+		    } catch (Exception e) {
+		        logger.error("Error al inicializar roles de usuario", e);
+		        throw new ServletException("Error al inicializar roles de usuario", e);
+		    }
+		}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -57,7 +64,7 @@ public class UsuarioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("Entrando doGet");
+		logger.info("Entrando doGet");
 	}
 
 	/**
@@ -66,18 +73,13 @@ public class UsuarioServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("Entrando doPost");
+		logger.info("Entrando doPost");
 
 		String nombre = request.getParameter("nombreUsuario");
-		System.out.println(nombre);
 		String apellidos = request.getParameter("apellidosUsuario");
-		System.out.println(apellidos);
 		String dni = request.getParameter("dniUsuario");
-		System.out.println(dni);
 		String sexo = request.getParameter("sexoUsuario");
-		System.out.println(sexo);
 		String fechaNacimientoStr = request.getParameter("fechaNacimiento");
-		System.out.println(fechaNacimientoStr);
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		
 		Date fechaNacimientoDate = null;
@@ -88,35 +90,32 @@ public class UsuarioServlet extends HttpServlet {
 		}
 
 		String email = request.getParameter("emailUsuario");
-		System.out.println(email);
 		String telefono = request.getParameter("telefono");
-		System.out.println(telefono);
 		String nameUsuario = request.getParameter("nameUsuario");
-		System.out.println(nameUsuario);
 		String contrasena = request.getParameter("contrasena");
-		System.out.println(contrasena);
 		String[] rolesStrings = request.getParameterValues("roles[]");
-		for (String string : rolesStrings) {
-			System.out.println(string);
-		}
 		
 
-		List<RolUsuario> rolesSet = new ArrayList<>();
+		logger.info(nombre + " " + apellidos + " " + sexo + " " + fechaNacimientoStr + " " + formatter + " " + fechaNacimientoDate + " " + 
+				email + " " + telefono + " " + nameUsuario + " " + contrasena + " " + rolesStrings);
+		
+		List<RolUsuario> rolesList = new ArrayList<>();
 		if (rolesStrings != null) {
 		    for (String rolString : rolesStrings) {
 		        UsuarioEnum rolEnum = UsuarioEnum.getRol(rolString);
 		        if (rolEnum != null) {
 		            RolUsuario rolUsuario = new RolUsuario(rolEnum);
-		            rolesSet.add(rolUsuario);
+		            rolesList.add(rolUsuario);
 		        }
 		    }
 		}
 		
+		logger.info("Rol del usuario " + rolesList.size());
+		
 		UsuarioDAO usao = new UsuarioDAO();
 		Usuario usuario = new Usuario(nombre,apellidos,dni,sexo,fechaNacimientoDate,
-				email,telefono,nameUsuario,contrasena,rolesSet);
+				email,telefono,nameUsuario,contrasena,rolesList);
 
-		System.out.println(usuario);
 
 		usao.insert(usuario);
 
