@@ -49,6 +49,33 @@ public class Usuario {
 	
 	
 
+	/**
+	 * @param nombre
+	 * @param apellidos
+	 * @param dni
+	 * @param sexo
+	 * @param fechaNacimiento
+	 * @param email
+	 * @param telefono
+	 * @param nameUsuario
+	 * @param contrasena
+	 */
+	public Usuario(String nombre, String apellidos, String dni, String sexo, Date fechaNacimiento, String email,
+			String telefono, String nameUsuario, String contrasena) {
+		super();
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.dni = dni;
+		this.sexo = sexo;
+		this.fechaNacimiento = fechaNacimiento;
+		this.email = email;
+		this.telefono = telefono;
+		this.nameUsuario = nameUsuario;
+		this.contrasena = contrasena;
+	}
+
+
+
 	public Usuario(String nombre, String apellidos, String dni, String sexo, Date fechaNacimiento, String email,
 			String telefono, String nameUsuario, String contrasena, List<RolUsuario> roles) {
 		super();

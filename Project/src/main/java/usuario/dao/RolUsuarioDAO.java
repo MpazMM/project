@@ -21,28 +21,17 @@ public class RolUsuarioDAO {
 		return rolUsuarios;
 	}
 
-	public RolUsuario getPorId(long id) {
-		RolUsuario usuario;
+	public RolUsuario getPorRol(String rol) {
 		Query query = em.createQuery(
-				"from RolUsuario ru where ru.id=?1", 
+				"from RolUsuario ru where ru.rolEnum=?1", 
 				RolUsuario.class);
-		query.setParameter(1, id);
-		usuario = (RolUsuario)query.getSingleResult();
-		
-		return usuario;
+		query.setParameter(1, rol);
+		RolUsuario rolUsuario = null;
+		rolUsuario = (RolUsuario)query.getSingleResult();
+		//logger.info("El rol es " + rolUsuario.getRolEnum();
+		return rolUsuario;
 	}
 	
-	
-//	public void insertRol(RolUsuario rolUsuario) {
-//		this.em.getTransaction().begin();
-//		try {
-//			em.persist(rolUsuario);
-//			this.em.getTransaction().commit();
-//			logger.info("Realizada creación RolUsuario con éxito " + rolUsuario);
-//		}catch (Exception e) {
-//			this.em.getTransaction().rollback();
-//		}	
-//	}
 	
 	public void insertRol(RolUsuario rolUsuario) {
 	    if(isEmpty()) {

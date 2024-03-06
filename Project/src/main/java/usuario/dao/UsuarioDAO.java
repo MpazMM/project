@@ -18,7 +18,7 @@ public class UsuarioDAO {
 	
 	public List<Usuario> getUsuarios() {
 		logger.info("Creando consulta de usuarios");
-		List<Usuario> usuarios = em.createQuery("from Usuario").getResultList();
+		List<Usuario> usuarios = em.createQuery("from Usuario", Usuario.class).getResultList();
 		return usuarios;
 	}
 
@@ -42,6 +42,8 @@ public class UsuarioDAO {
 			this.em.getTransaction().commit();
 			logger.info("Usuario creado con éxito");
 		}catch (Exception e) {
+			logger.error("Error "+ e.getMessage());
+			e.printStackTrace();
 			this.em.getTransaction().rollback();
 		}	
 	}

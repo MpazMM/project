@@ -8,9 +8,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 import usuario.enums.UsuarioEnum;
 
 @Entity
+@Table(name = "TB_ROLESUSUARIO") 
 public class RolUsuario {
 
 	@Id
@@ -18,16 +20,16 @@ public class RolUsuario {
 	@SequenceGenerator(name = "id_RolUsuario", sequenceName = "ID_SEQ_ROL")
     private Long id;
 
-    @Enumerated(EnumType.STRING)
+    //@Enumerated(EnumType.STRING)
     @Column(length = 20)
-    private UsuarioEnum rolEnum;
+    private String rolEnum;
 
 
     public RolUsuario() {
     	
     }
 
-    public RolUsuario(UsuarioEnum rolEnum) {
+    public RolUsuario(String rolEnum) {
         this.rolEnum = rolEnum;
     }
 
@@ -39,11 +41,11 @@ public class RolUsuario {
 		this.id = id;
 	}
 
-	public UsuarioEnum getRolEnum() {
+	public String getRolEnum() {
 		return rolEnum;
 	}
 
-	public void setRolEnum(UsuarioEnum rolEnum) {
+	public void setRolEnum(String rolEnum) {
 		this.rolEnum = rolEnum;
 	}
 
