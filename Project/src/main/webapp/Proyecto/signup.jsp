@@ -30,12 +30,12 @@ h2 {
 	color: white !important;
 }
 .is-invalid {
-    border-color: purple !important; /* Borde morado para campos invalidados */
-    background: rgba(255, 0, 255, 0.1) !important; /* Fondo ligeramente morado */
+    border-color: purple !important; 
+    background: rgba(235, 215, 255, 0.5) !important; 
 }
 
 .invalid-feedback {
-    color: white !important; /* Texto de error en blanco */
+    color: rgba(235, 215, 255, 0.5) !important; 
 }
 </style>
 </head>
