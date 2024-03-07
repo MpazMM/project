@@ -115,6 +115,15 @@ h2 {
 		document.getElementById("loginBtn").addEventListener("click",
 				toggleLoginPopup);
 	</script>
+	
+	<script>
+    window.onload = function() {
+        const mensaje = "<%=request.getAttribute("mensaje")%>";
+        if (mensaje !== "null" && mensaje !== "") {
+            alert(mensaje);
+        }
+    };
+</script>
 </body>
 <jsp:include page="/Proyecto/recursos/piepagina.html"></jsp:include>
 </html>

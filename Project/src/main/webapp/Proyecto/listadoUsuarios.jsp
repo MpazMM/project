@@ -46,17 +46,17 @@
         &apellidos=<%= URLEncoder.encode(usuario.getApellidos(), "UTF-8") %>
         &dni=<%= usuario.getDni() %>
         &sexo=<%= URLEncoder.encode(usuario.getSexo(), "UTF-8") %>
-<%--         &fechaNacimiento=<%= usuario.getFechaNacimiento() %> --%>
+        &fechaNacimiento=<%= usuario.getFechaNacimiento() %> 
         &email=<%= URLEncoder.encode(usuario.getEmail(), "UTF-8") %>
         &telefono=<%= usuario.getTelefono() %>
         &nameUsuario=<%= URLEncoder.encode(usuario.getNameUsuario(), "UTF-8") %>
         &contraseña=<%= URLEncoder.encode(usuario.getContrasena(), "UTF-8") %>
-        &roles=<%= URLEncoder.encode(usuario.getRolesString(), "UTF-8") %>">Modificar</a></td>
+        &roles=<%= URLEncoder.encode(usuario.getRoles().toString()), "UTF-8") %>">Modificar</a></td>
 
 			<td><%=usuario.getNombre()%></td>
 			<td><%=usuario.getApellidos()%></td>
 			<td><%=usuario.getSexo()%></td>
-<%-- 			<td><%=usuario.getFechaNacimiento()%></td> --%>
+			<td><%=usuario.getFechaNacimiento()%></td> 
 			<td><%=usuario.getEmail()%></td>
 			<td><%=usuario.getTelefono()%></td>
 			<td><%=usuario.getNameUsuario()%></td>

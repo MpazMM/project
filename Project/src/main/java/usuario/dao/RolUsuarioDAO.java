@@ -50,8 +50,7 @@ public class RolUsuarioDAO {
 	}
 	
 	public boolean isEmpty() {
-		List<RolUsuario> roles = em.createQuery("from RolUsuario", RolUsuario.class).getResultList();
-		
+		List<RolUsuario> roles = em.createQuery("from RolUsuario", RolUsuario.class).getResultList();	
 		boolean isVacio = false;
 		if(roles.isEmpty()) {
 			isVacio = true;

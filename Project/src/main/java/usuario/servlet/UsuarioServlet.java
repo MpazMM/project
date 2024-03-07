@@ -43,15 +43,17 @@ public class UsuarioServlet extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
+		RolUsuarioDAO rolDAO = new RolUsuarioDAO();
 		try {
 			logger.info("Entrando init");
-			RolUsuarioDAO rolDao = new RolUsuarioDAO();
-			logger.info(rolDao.isEmpty());
-			rolDao.insertRol(new RolUsuario(UsuarioEnum.ADMIN.toString()));
-			rolDao.insertRol(new RolUsuario(UsuarioEnum.USER.toString()));
-			rolDao.insertRol(new RolUsuario(UsuarioEnum.GUEST.toString()));
+			logger.info(rolDAO.isEmpty());
+			if(rolDAO.isEmpty()) {
+				rolDAO.insertRol(new RolUsuario(UsuarioEnum.ADMIN.toString()));
+				rolDAO.insertRol(new RolUsuario(UsuarioEnum.USER.toString()));
+				rolDAO.insertRol(new RolUsuario(UsuarioEnum.GUEST.toString()));
 			logger.info("Creados perfiles de usuario " + UsuarioEnum.ADMIN + ", " + UsuarioEnum.USER + ", "
 					+ UsuarioEnum.GUEST);
+			}
 		} catch (Exception e) {
 			logger.error("Error al inicializar roles de usuario", e);
 			//throw new ServletException("Error al inicializar roles de usuario", e);
