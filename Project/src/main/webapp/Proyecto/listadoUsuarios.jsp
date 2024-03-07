@@ -42,16 +42,16 @@
 		for (Usuario usuario : usuarios) {
 		%>
 		<tr>
-			<td><a href="/Project/Proyecto/signup.jsp?nombre=<%= URLEncoder.encode(usuario.getNombre(), "UTF-8") %>
-        &apellidos=<%= URLEncoder.encode(usuario.getApellidos(), "UTF-8") %>
-        &dni=<%= usuario.getDni() %>
-        &sexo=<%= URLEncoder.encode(usuario.getSexo(), "UTF-8") %>
-        &fechaNacimiento=<%= usuario.getFechaNacimiento() %> 
-        &email=<%= URLEncoder.encode(usuario.getEmail(), "UTF-8") %>
-        &telefono=<%= usuario.getTelefono() %>
-        &nameUsuario=<%= URLEncoder.encode(usuario.getNameUsuario(), "UTF-8") %>
-        &contraseña=<%= URLEncoder.encode(usuario.getContrasena(), "UTF-8") %>
-        &roles=<%= URLEncoder.encode(usuario.getRoles().toString()), "UTF-8") %>">Modificar</a></td>
+<%-- 			<td><a href="/Project/Proyecto/signup.jsp?nombre=<%= URLEncoder.encode(usuario.getNombre(), "UTF-8") %> --%>
+<%--         &apellidos=<%= URLEncoder.encode(usuario.getApellidos(), "UTF-8") %> --%>
+<%--         &dni=<%= usuario.getDni() %> --%>
+<%--         &sexo=<%= URLEncoder.encode(usuario.getSexo(), "UTF-8") %> --%>
+<%--         &fechaNacimiento=<%= usuario.getFechaNacimiento() %>  --%>
+<%--         &email=<%= URLEncoder.encode(usuario.getEmail(), "UTF-8") %> --%>
+<%--         &telefono=<%= usuario.getTelefono() %> --%>
+<%--         &nameUsuario=<%= URLEncoder.encode(usuario.getNameUsuario(), "UTF-8") %> --%>
+<%--         &contraseña=<%= URLEncoder.encode(usuario.getContrasena(), "UTF-8") %> --%>
+<%--         &roles=<%= URLEncoder.encode(usuario.getRoles().toString()), "UTF-8") %>">Modificar</a></td> --%>
 
 			<td><%=usuario.getNombre()%></td>
 			<td><%=usuario.getApellidos()%></td>

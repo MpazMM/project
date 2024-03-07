@@ -41,10 +41,10 @@ public class LogInServlet extends HttpServlet {
         
         if (usdao.validarUsuario(nameUsuario, contrasena)!=null) {
             request.getSession().setAttribute("usuario", nameUsuario);
-            response.sendRedirect("welcome.jsp"); // Redirigir al usuario a la página de bienvenida
+            response.sendRedirect("Proyecto/userLogIn.jsp"); 
         } else {
             request.setAttribute("mensaje", "Usuario o contraseña incorrectos");
-            request.getRequestDispatcher("Proyecto/index.jsp").forward(request, response); // Mostrar mensaje de error
+            request.getRequestDispatcher("Proyecto/index.jsp").forward(request, response); 
         }
     }
 }
