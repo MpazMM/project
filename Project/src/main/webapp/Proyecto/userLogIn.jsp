@@ -42,7 +42,7 @@ h2 {
 	</div>
 
 
-	<jsp:include page="./recursos/piepagina.html"></jsp:include>
+	<jsp:include page="/Proyecto/recursos/piepagina.html"></jsp:include>
 	<script src="./recursos/validaciones.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

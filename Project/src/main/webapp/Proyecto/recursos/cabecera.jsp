@@ -44,6 +44,9 @@
         <li class="nav-item">
           <a class="nav-link fw-bold" href="/Project/Proyecto/informacion.jsp"><%= rb.getString("nav.info") %></a>
         </li>
+         <li class="nav-item">
+          <a class="nav-link fw-bold" href="/Project/Proyecto/listadoUsuarios.jsp"><%= rb.getString("nav.tabla") %></a>
+        </li>
       </ul>
     </div>
   </div>

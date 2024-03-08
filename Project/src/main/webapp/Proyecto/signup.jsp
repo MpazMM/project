@@ -6,13 +6,6 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet">
-<script>
-	function mostrarCamposAdicionales() {
-		var seleccion = document.getElementById("tipoUsuario").value;
-		document.getElementById("camposAdicionales").style.display = seleccion === "ADMIN" ? "block"
-				: "none";
-	}
-</script>
 <style>
 h2 {
 	color: purple;
@@ -43,10 +36,28 @@ h2 {
 
 
 	<jsp:include page="/Proyecto/recursos/cabecera.jsp"></jsp:include>
+	
+	<%
+
+String nombre 	 = request.getParameter("nombreUsuario")!=null?request.getParameter("nombreUsuario"):"";
+String apellidos = request.getParameter("apellidosUsuario")!=null?request.getParameter("apellidosUsuario"):"";
+String dni = request.getParameter("dniUsuario")!=null?request.getParameter("dniUsuario"):"";
+String sexo = request.getParameter("sexoUsuario")!=null?request.getParameter("sexoUsuario"):"";
+String fechaNacimiento = request.getParameter("fechaNacimiento")!=null?request.getParameter("fechaNacimiento"):"";
+String email = request.getParameter("emailUsuario")!=null?request.getParameter("emailUsuario"):"";
+String telefono = request.getParameter("telefono")!=null?request.getParameter("telefono"):"";
+String nameUsuario = request.getParameter("nameUsuario")!=null?request.getParameter("nameUsuario"):"";
+String contrasena = request.getParameter("contrasena")!=null?request.getParameter("contrasena"):"";
+String roles = request.getParameter("roles")!=null?request.getParameter("roles"):"";
+
+String accion = request.getParameter("accion").equals("modificar")?"modificar":"insertar";
+
+
+%>
 
 	<div class="container mt-5">
 		<h2>Registro de Usuario</h2>
-		<form action="/Project/UsuarioServlet" method="post"
+		<form action="/Project/UsuarioServlet?accion=<%=accion %>" method="post"
 			onsubmit="return validarFormulario(event)">
 			<div class="row">
 				<div class="col-md-6 mb-3">

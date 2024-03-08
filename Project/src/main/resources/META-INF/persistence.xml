@@ -2,8 +2,7 @@
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
 <!--     <persistence-unit name="hibernateMySQL" transaction-type="RESOURCE_LOCAL"> -->
 <!--         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider> -->
-<!--         entidades o entities -->
-<!--               <class>usuario.entities.Usuario</class> -->
+<!--                 <class>usuario.entities.Usuario</class> -->
 <!--         <class>usuario.entities.RolUsuario</class> -->
         
 <!--         <exclude-unlisted-classes>true</exclude-unlisted-classes> -->
@@ -17,26 +16,6 @@
 <!--  			<property name="hibernate.hbm2ddl.auto" value="create"/> -->
 <!--         </properties> -->
 <!--     </persistence-unit> -->
-    
-<!--     <persistence-unit name="sample"> -->
-
-<!--     <class>org.pramod.data.object.UserDetail</class> -->
-<!--     <exclude-unlisted-classes>true</exclude-unlisted-classes> -->
-<!--     <properties> -->
-<!--         <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/> -->
-<!--         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/> -->
-<!--         <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/hibernate_project"/> -->
-<!--         <property name="hibernate.connection.username" value="root"/> -->
-<!--         <property name="hibernate.connection.password" value="root"/> -->
-<!--         <property name="hibernate.hbm2ddl.auto" value="create-drop"/> -->
-<!--         <property name="hibernate.show_sql" value="true"/> -->
-<!--         <property name="hibernate.format_sql" value="false"/> -->
-
-<!--         <property name="hibernate.cache.use_second_level_cache" value="false"/> -->
-
-<!--         <property name="hibernate.archive.autodetection" value="true"/> -->
-<!--     </properties> -->
-<!-- </persistence-unit> -->
     
     
     

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bienvenido a esta página</title>
-<!-- Bootstrap CSS -->
+
 <link
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -92,13 +92,13 @@ h2 {
 	<div id="loginPopup">
 		<span class="close" onclick="toggleLoginPopup()">&times;</span>
 		<h2>Login</h2>
-		<form action="" method="post">
+		<form action="/Project/LogInServlet" method="post">
 			<div class="form-group">
 				<label for="usuario">Usuario:</label> <input type="text"
 					class="form-control" name="usuario" id="usuario">
 			</div>
 			<div class="form-group">
-				<label for="contrasena">Contraseña:</label> <input type="password"
+				<label for="contrasena">Contraseña</label> <input type="password"
 					class="form-control" name="contrasena" id="contrasena">
 			</div>
 			<button type="submit" class="btn btn-morado fw-bold">Acceder</button>

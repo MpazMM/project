@@ -43,20 +43,20 @@ public class UsuarioServlet extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		RolUsuarioDAO rolDAO = new RolUsuarioDAO();
 		try {
 			logger.info("Entrando init");
-			logger.info(rolDAO.isEmpty());
-			if(rolDAO.isEmpty()) {
-				rolDAO.insertRol(new RolUsuario(UsuarioEnum.ADMIN.toString()));
-				rolDAO.insertRol(new RolUsuario(UsuarioEnum.USER.toString()));
-				rolDAO.insertRol(new RolUsuario(UsuarioEnum.GUEST.toString()));
+			RolUsuarioDAO rolDao = new RolUsuarioDAO();
+			logger.info(rolDao.isEmpty());
+			if(rolDao.isEmpty()) {
+			rolDao.insertRol(new RolUsuario(UsuarioEnum.ADMIN.toString()));
+			rolDao.insertRol(new RolUsuario(UsuarioEnum.USER.toString()));
+			rolDao.insertRol(new RolUsuario(UsuarioEnum.GUEST.toString()));
 			logger.info("Creados perfiles de usuario " + UsuarioEnum.ADMIN + ", " + UsuarioEnum.USER + ", "
 					+ UsuarioEnum.GUEST);
 			}
 		} catch (Exception e) {
 			logger.error("Error al inicializar roles de usuario", e);
-			//throw new ServletException("Error al inicializar roles de usuario", e);
+
 		}
 	}
 
@@ -66,8 +66,12 @@ public class UsuarioServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		logger.info("Entrando doGet");
+		UsuarioDAO dao = new UsuarioDAO();
+		List<Usuario> listaUsuarios = dao.getUsuarios();
+		request.setAttribute("listadoUsuarios", listaUsuarios);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("Proyecto/listadoUsuarios.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**
@@ -101,15 +105,26 @@ public class UsuarioServlet extends HttpServlet {
 			}
 			System.out.println(rolesList.size());
 			usuario.setRoles(rolesList);
-			usdao.insert(usuario);
+			
+			if(request.getParameter("accion").equals("insertar")) {
+				logger.info("Insertando usuario " + usuario);
+				usdao.insert(usuario);
+			}else if(request.getParameter("accion").equals("eliminar")) {
+				usdao.delete(usuario);
+				logger.info("Borrando usuario " + usuario);
+			}else if(request.getParameter("accion").equals("modificar")) {
+				usdao.modificarUsuario(dni, usuario);
+				logger.info("Modificando usuario " + usuario);
+			}
+		
 		} catch (NumberFormatException | ParseException e) {
 			logger.error("Excepción en creación usuario " + e.getMessage());
 			e.printStackTrace();
 		}
 
-		List<Usuario> usuarios = usdao.getUsuarios();
+		List<Usuario> listaUsuarios = usdao.getUsuarios();
 
-		request.setAttribute("listadoUsuarios", usuarios);
+		request.setAttribute("listadoUsuarios", listaUsuarios);
 		RequestDispatcher rd = request.getRequestDispatcher("Proyecto/listadoUsuarios.jsp");
 
 		rd.forward(request, response);

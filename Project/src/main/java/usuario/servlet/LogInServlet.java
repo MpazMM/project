@@ -2,11 +2,11 @@ package usuario.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import usuario.dao.UsuarioDAO;
 
 /**
@@ -38,13 +38,16 @@ public class LogInServlet extends HttpServlet {
 		String nameUsuario = request.getParameter("usuario");
         String contrasena = request.getParameter("contrasena");
         UsuarioDAO usdao = new UsuarioDAO();
+        RequestDispatcher rd = null;
         
         if (usdao.validarUsuario(nameUsuario, contrasena)!=null) {
-            request.getSession().setAttribute("usuario", nameUsuario);
-            response.sendRedirect("Proyecto/userLogIn.jsp"); 
+            request.setAttribute("usuario", nameUsuario);
+            rd = request.getRequestDispatcher("Proyecto/userLogIn.jsp");
         } else {
             request.setAttribute("mensaje", "Usuario o contraseña incorrectos");
-            request.getRequestDispatcher("Proyecto/index.jsp").forward(request, response); 
+            rd = request.getRequestDispatcher("/index.jsp"); 
         }
+        
+        rd.forward(request, response);
     }
 }
